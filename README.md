@@ -2,5 +2,6 @@
 webpack系列
 * git clone
 * yarn install
-* npm start
-* npm init
+* npm run start
+* npm run build
+
