@@ -1,6 +1,6 @@
 import 'bootstrap'
 import 'jquery'
-import './index.scss'
+import './index.less'
 import loginValidate from './js/login'
 import * as my from './js/demo'
 import {

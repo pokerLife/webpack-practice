@@ -10,43 +10,38 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'), // 解析路径为 ./dist
         filename: 'bundle.js'
-    }, 
+    },
     /**
      * 配置解析：配置别名、extensions 自动解析确定的扩展等等
      */
-    resolve: {}, 
+    resolve: {},
     /**
      * 开发服务器：run dev/start 的配置，如端口、proxy等
-     */ 
+     */
     devServer: {
         port: 8088,
         open: true, // 自动打开浏览器
         compress: true // 服务器压缩
-    }, 
+    },
     module: {
         rules: [{
-                test: /\.(scss)$/,
+                test: /\.(scss|less)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
+                    use: ['css-loader', 'sass-loader', 'less-loader']
                 })
-                // use: [{
-                //     loader: 'style-loader',
-                // }, {
-                //     loader: 'css-loader',
-                // }, {
-                //     loader: 'postcss-loader', 
-                //     options: {
-                //         plugins: function () { 
-                //             return [
-                //                 require('precss'),
-                //                 require('autoprefixer')
-                //             ];
-                //         }
-                //     }
-                // }, {
-                //     loader: 'sass-loader' // compiles SASS to CSS
-                // }]
+            },
+            {
+                test: /\.(woff2?|svg)$/,
+                use: [{
+                    loader: 'url-loader?limit=10000'
+                }]
+            },
+            {
+                test: /\.(ttf|eot)$/,
+                use: [{
+                    loader: 'file-loader'
+                }]
             },
             {
                 test: /\.m?js$/,
@@ -55,7 +50,7 @@ module.exports = {
                     loader: 'babel-loader'
                 }
             }
-        ], 
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
