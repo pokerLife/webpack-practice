@@ -34,13 +34,13 @@ module.exports = {
             {
                 test: /\.(woff2?|svg)$/,
                 use: [{
-                    loader: 'url-loader?limit=10000'
+                    loader: 'url-loader?limit=10000&name=[name].[ext]&outputPath=fonts/'
                 }]
             },
             {
                 test: /\.(ttf|eot)$/,
                 use: [{
-                    loader: 'file-loader'
+                    loader: 'file-loader?name=[name].[ext]&outputPath=fonts/'
                 }]
             },
             {
