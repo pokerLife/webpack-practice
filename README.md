@@ -1,7 +1,6 @@
 # webpack-practice
-webpack系列
-* git clone
-* yarn install
-* npm run start
-* npm run build
+## bootstrap4分支
+
+> webpack4整合bootstrap4，样式使用bootstrap sass文件
+
 
