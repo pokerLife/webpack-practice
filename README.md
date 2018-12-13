@@ -1,5 +1,6 @@
-# webpack-practice
-## bootstrap3 分支
-> webpack4整合bootstrap3
-* css使用bootstrap less文件。
-* 登录页面使用bootstrap-validator
+# :1st_place_medal:webpack-practice
+> webpack4构建前端项目
+## 分支说明
+* <b>master：</b>  webpack4以及其他工具整合
+* <b>bootstrap3：</b> webpack4整合bootstrap3
+* <b>bootstrap4：</b> webpack4整合bootstrap4
