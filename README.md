@@ -1,7 +1,5 @@
 # webpack-practice
-webpack系列
-* git clone
-* yarn install
-* npm run start
-* npm run build
-
+## bootstrap3 分支
+> webpack4整合bootstrap3
+* css使用bootstrap less文件。
+* 登录页面使用bootstrap-validator
