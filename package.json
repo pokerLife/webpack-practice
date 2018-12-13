@@ -7,10 +7,10 @@
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development"
   },
-  "author": "zhaojie",
+  "author": "Heartbeats",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "~3.3.7",
+    "bootstrap": "^3.3.7",
     "bootstrap-validator": "^0.11.9",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.6"
