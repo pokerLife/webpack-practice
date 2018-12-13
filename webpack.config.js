@@ -5,10 +5,14 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.js',
+    
+    mode: 'development', //可以更改模式  production | development
+    entry: {
+        app:'./src/index.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
     },
     resolve: {},
     devServer: {
@@ -18,10 +22,10 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.(scss|less)$/,
+            test: /\.(scss)$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader', 'sass-loader', 'less-loader']
+                use: ['css-loader', 'sass-loader']
             })
         }],
     },
