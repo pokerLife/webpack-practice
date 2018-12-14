@@ -4,9 +4,9 @@ export default function loginValidate() {
     let username = loginForm[0];
     var password = loginForm[1];
 
-    loginBtn.addEventListener('click', event => {
+    loginBtn.addEventListener('click', () => {
         if (!username.value || !password.value) {
             alert('用户名或密码为空');
         }
-    })
+    });
 }
