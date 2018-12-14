@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(common, {
@@ -12,6 +13,12 @@ module.exports = merge(common, {
     plugins: [
         new UglifyJSPlugin({
             sourceMap: true
+        }),
+        new BundleAnalyzerPlugin(),
+        new OptimizeCSSPlugin({ // 压缩css
+            cssProcessorOptions: {
+                safe: true
+            }
         }),
     ]
 });

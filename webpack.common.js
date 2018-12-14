@@ -2,6 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 function resolve(dir) {
     return path.join(__dirname, dir);
@@ -49,8 +51,9 @@ module.exports = {
         {
             test: /\.(png|svg|jpg|gif)$/,
             use: [{
-                loader: 'file-loader',
+                loader: 'url-loader',
                 options: {
+                    limit: 5 * 1024, //小于这个时将会已base64位图片打包处理
                     //name: '[name].[ext]',
                     outputPath: 'images/'
                 }
@@ -87,6 +90,11 @@ module.exports = {
             }
         }),
         new CleanWebpackPlugin(['dist']),
-        new ExtractTextPlugin('css/index.css'), //提取单独的css
+        new ExtractTextPlugin('css/index.min.css'), //提取单独的css
+        new CopyWebpackPlugin([{ //拷贝资源文件
+            from: path.resolve(__dirname, './src/assets'),
+            to: path.resolve(__dirname, 'assets'),
+            ignore: ['.*']
+        }])
     ]
 };
